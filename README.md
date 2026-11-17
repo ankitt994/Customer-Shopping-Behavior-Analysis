@@ -1,164 +1,126 @@
-📊 Customer Shopping Behavior Analysis
-End-to-End Data Analytics Project (Python • SQL • Power BI)
+# Customer Shopping Behavior Analysis
 
-Author: Ankit Tripathi
-Role: MIS Analyst | Data Analyst
-Location: Bangalore, India
+**End-to-end analytics project | Python • MySQL • Power BI**
 
-🚀 Executive Summary
+This project explores customer shopping patterns in a retail dataset and demonstrates an analytics workflow from data preparation to business-facing insights.
 
-This project delivers an end-to-end analysis of customer shopping behavior using 3,900 real-world transactional records.
-It demonstrates my ability to translate raw data into business decisions through structured analysis, SQL-driven insights, and executive dashboards.
+- **Author:** Ankit Tripathi
+- **Location:** Bengaluru, India
+- **Dataset:** 3,900 purchase records and 18 attributes
+- **Tools:** Python, Pandas, MySQL, Power BI, PowerPoint
 
-The workflow mirrors how analytics teams operate in production environments:
+---
 
-Data Cleaning → Feature Engineering → SQL Analysis → Visualization → Business Recommendations
+## 1. Business problem
 
-🎯 Business Objectives
+A retail business wants to understand how customer demographics, product preferences, discounts, reviews, seasons, payment methods and subscription status relate to shopping behaviour. The goal is to use these patterns to improve customer engagement, product decisions and marketing effectiveness.
 
-Identify high-value customer segments
+**Guiding business question**
 
-Measure the impact of discounts and subscriptions on revenue
+> How can the company leverage consumer shopping data to identify trends, improve customer engagement, and optimize marketing and product strategies?
 
-Understand product performance and customer preferences
+## 2. Project objectives
 
-Enable data-driven marketing and retention strategies
+1. Prepare a reliable, analysis-ready dataset using Python.
+2. Use MySQL to answer business questions about customer segments, spending, products and purchase drivers.
+3. Present key metrics and patterns in an interactive Power BI dashboard.
+4. Communicate findings and practical recommendations through project documentation and a presentation.
+5. Keep the workflow, code and deliverables accessible in this repository.
 
+## 3. Dataset overview
 
-📊 Dataset Overview
+The analysis uses 3,900 shopping records with 18 fields. The available attributes cover:
 
-Records: 3,900 customer purchases
+- **Customer profile:** age, gender, location
+- **Purchase information:** item purchased, category, purchase amount, season
+- **Shopping behaviour:** previous purchases, purchase frequency, subscription status
+- **Purchase experience:** review rating, shipping type
+- **Purchase preferences:** discount and promo-code usage, payment method, size and colour
 
-Attributes: 18 columns
+### Data preparation
 
-Key Dimensions
+The Python workflow documents handling of missing review ratings, standardization of column names, feature engineering (including age groups and purchase-frequency fields), and preparation of a clean dataset for SQL analysis. The existing analysis records 37 missing values in `review_rating`, imputed using the median review rating by product category.
 
-Customer demographics (Age, Gender, Location)
+## 4. Analysis workflow and deliverables
 
-Purchase details (Category, Amount, Season)
+| Stage | Tool | Work / deliverable |
+|---|---|---|
+| Data preparation | Python / Pandas | Data cleaning, validation, feature engineering and prepared data |
+| Business analysis | MySQL | SQL queries for revenue, discount usage, product ratings, shipping, subscriptions and customer segmentation |
+| Visualization | Power BI | Interactive customer behaviour dashboard |
+| Communication | PowerPoint / PDF | Presentation and supporting project review / analysis documents |
+| Version control | GitHub | Project assets and documentation |
 
-Behavioral metrics (Discount usage, Reviews, Subscriptions)
+### Repository files
 
-Data Quality Handling
+| File | Description |
+|---|---|
+| [Python analysis PDF](Customer_Shopping_Behavior_Analysis%28python%29.pdf) | Export of the Python data-preparation and analysis work |
+| [MySQL queries](Customer_behavior_dashboard%28MySQL%29.sql) | SQL business questions and analysis queries |
+| [Power BI dashboard](Customer_Behavior_Dashboard.pbix) | Download and open in Power BI Desktop |
+| [Project presentation](Customer-Shopping-Behavior-Analysis.pptx) | Stakeholder presentation |
+| [Project review](Project%20Review.pdf) | Supporting project review document |
 
-37 missing values in review_rating
+> **Power BI note:** GitHub does not render PBIX files in the browser. Download the PBIX file and open it using Power BI Desktop.
 
-Imputed using median rating by product category
+## 5. Business questions explored in SQL
 
-Columns standardized using snake_case
+The current SQL analysis covers:
 
-🐍 Python: Data Preparation & Feature Engineering
-Key Highlights
+1. What is the revenue split between male and female customers?
+2. Which customers used a discount but still spent at least the overall average?
+3. Which products have the highest average review ratings?
+4. How does average purchase amount differ between Standard and Express shipping?
+5. How do average spend and total revenue compare for subscribers and non-subscribers?
+6. Which products have the highest proportion of discounted purchases?
+7. How many customers fall into New, Returning and Loyal groups based on previous-purchase counts?
+8. What are the three most purchased products in each category?
+9. How many repeat buyers (more than five previous purchases) are subscribers versus non-subscribers?
+10. Which age groups contribute the most revenue?
 
-Robust data validation and null handling
+## 6. Current insights documented in the project
 
-Feature engineering for business segmentation:
+The existing project notes report the following patterns:
 
-age_group
+- Subscribers show higher average order value and total revenue in the analyzed records.
+- Discount usage is associated with purchases, but discount effectiveness should be assessed alongside margin data before changing promotional budgets.
+- Customers with higher previous-purchase counts are an important segment for retention initiatives.
+- Express shipping is associated with higher average purchase amounts in the analyzed records.
 
-purchase_frequency_days
+These are descriptive findings from this dataset, not proof that subscriptions, discounts or shipping options cause higher spending. Validate the underlying figures in the SQL outputs and dashboard before using them as business targets.
 
-Removal of redundant fields after logical consistency checks
+## 7. Recommendations to investigate
 
-Production-style export of clean data to SQL database
+- Test targeted loyalty or retention offers for customers with higher previous-purchase counts.
+- Compare discount rates and average order values by product category before allocating promotions.
+- Evaluate subscription engagement and spending patterns to identify suitable audiences.
+- Use product ratings and category-level demand to inform merchandising and product decisions.
+- Review payment-method preferences when planning checkout and customer-experience improvements.
 
-Outcome: A clean, analysis-ready dataset optimized for SQL querying and BI visualization.
+## 8. Dataset limitations and interpretation
 
-🗄️ SQL: Business-Driven Analysis
+The available dataset is a set of 3,900 purchase records with customer and purchase attributes. The fields documented in the project do **not** include an explicit online/offline channel, campaign exposure, customer-level transaction dates, profit or product cost.
 
-I designed SQL queries to directly answer real stakeholder questions, including:
+Therefore:
+- Online-versus-offline performance and campaign attribution cannot be measured from the documented fields.
+- Previous-purchase count can be used as a repeat-purchase proxy, but a dated transaction history is needed for true repeat-rate, cohort and time-to-next-purchase analysis.
+- Discount impact on profitability cannot be established without margin or cost data.
+- Season can be compared as a recorded category, but the dataset does not by itself establish year-over-year seasonal trends.
 
-Revenue contribution by gender
+These are useful extensions for a richer retail dataset, not results claimed by the current analysis.
 
-Discount users with above-average spending
+## 9. Future enhancements
 
-Top-rated products by customer reviews
+- Add channel, campaign, transaction-date and margin data to support channel and campaign effectiveness analysis.
+- Build customer cohorts and time-based retention metrics when transaction-level history is available.
+- Add customer lifetime value and profitability analysis when the required data is available.
+- Automate data refresh and document the end-to-end pipeline.
 
-Shipping method impact on order value
+---
 
-Subscriber vs non-subscriber revenue comparison
+## Connect
 
-Products most dependent on discounts
+**Ankit Tripathi**  
+[LinkedIn](https://www.linkedin.com/in/ankittripathiii/) · [GitHub](https://github.com/ankitt994)
 
-Customer segmentation (New, Returning, Loyal)
-
-Top products within each category
-
-Repeat buyers vs subscription adoption
-
-Revenue distribution across age groups
-
-Queries are written using window functions, CTEs, conditional logic, and aggregations.
-
-📈 Power BI: Executive Dashboard
-
-An interactive Power BI dashboard was built to enable:
-
-Revenue and customer segmentation analysis
-
-Product and category performance tracking
-
-Subscription and discount impact evaluation
-
-📌 Note:
-GitHub does not preview .pbix files.
-Download the file locally to explore full interactivity.
-
-📑 Stakeholder Communication
-Deliverables
-
-PowerPoint: Executive-level insights and recommendations
-
-Word Document: Detailed methodology and findings
-
-This ensures insights are actionable for both technical and non-technical audiences.
-
-💡 Key Business Insights
-
-Subscribers show higher average order value and lifetime revenue
-
-Discount usage boosts sales but risks margin erosion
-
-Loyal customers contribute a disproportionate share of revenue
-
-Express shipping correlates with higher purchase amounts
-
-📌 Strategic Recommendations
-
-Introduce targeted loyalty programs for repeat buyers
-
-Optimize discount strategies by product category
-
-Promote subscription benefits for high-value customers
-
-Focus marketing efforts on high-revenue age segments
-
-🧪 What This Project Demonstrates
-
-✔ Strong data cleaning & analytical thinking
-✔ SQL proficiency aligned with real business problems
-✔ Dashboard design for decision-makers
-✔ Clear communication of insights and impact
-
-🔮 Future Enhancements
-
-Predictive modeling for customer churn
-
-Cohort analysis for retention tracking
-
-Automated ETL pipeline
-
-Deployment via Power BI Service
-
-⭐ Final Note
-
-This project reflects how I approach analytics:
-
-Clarity over complexity. Business value over visuals. Decisions over dashboards.
-
-If you’re a recruiter, analyst, or data enthusiast — feel free to explore, fork, or connect.
-
-🔗 Let’s Connect
-
-📍 Bangalore, India
-💼 Open to Data Analyst opportunities
+*This repository is a portfolio project demonstrating data preparation, SQL analysis, dashboarding and business communication.*
